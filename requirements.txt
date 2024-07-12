@@ -1,0 +1,14 @@
+scikit-learn>=0.23
+pandas
+opencv-python
+matplotlib
+joblib
+numpy
+pyyaml
+pytest
+pytest-dependency
+pre-commit
+catboost
+easyocr
+torch
+pydantic
