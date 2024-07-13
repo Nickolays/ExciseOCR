@@ -6,6 +6,16 @@ import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 
 
+def load_image(path:str):
+    """ Get RGB image"""
+    assert type(path) == str
+    assert os.path.exists(path)
+
+    img = cv2.imread(path)
+    assert img is not None
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    return img
+
 # def kmeans_postprocess(model, )
 
 def segmenting_image(model, image):
