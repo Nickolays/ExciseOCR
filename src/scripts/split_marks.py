@@ -18,7 +18,7 @@ img = cv2.imread("data/digits3_0.png")
 # Dimensions of the image
 sizeX = img.shape[1]
 sizeY = img.shape[0]
-
+ 
 top_margin = 150
 left_margin = 5
 mark_width = 160
@@ -31,6 +31,6 @@ for i in range(0, nRows):
         w2 = int(j*mark_width + mark_width) + left_margin
         roi = img[h1:h2, w1:w2]
         # cv2.imshow('rois'+str(i)+str(j), roi)
-        # cv2.imwrite('C:\sources\simple-ocr-opencv\simpleocr\data\splits\mark_'+str(i)+"-"+str(j)+".jpg", roi)
+        cv2.imwrite('data/splits/mark_'+str(i)+"-"+str(j)+".jpg", roi)
 
 cv2.waitKey()
