@@ -1,0 +1,22 @@
+model:
+  model:
+    _target_: easyocr.Reader
+    language: en
+dataset:
+  path: data/splits/mark_0-1.jpg
+server:
+  server:
+    ip: 127.0.0.1
+    port: '8080'
+    address: ${server.ip}:${server.port}
+params:
+  beamWidth: 5
+  min_size: 10
+  workers: 0
+  contrast_ths: 0.1
+  low_text: 0.4
+  link_threshold: 0.4
+  slope_ths: 0.1
+  ycenter_ths: 0.5
+  height_ths: 0.5
+  width_ths: 0.5

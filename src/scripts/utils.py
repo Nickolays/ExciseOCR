@@ -8,13 +8,46 @@ from sklearn.cluster import KMeans
 
 def load_image(path:str):
     """ Get RGB image"""
-    assert type(path) == str
+    assert isinstance(path, str)
     assert os.path.exists(path)
 
     img = cv2.imread(path)
-    assert img is not None
     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     return img
+
+def preprocess(predict):
+    """ 
+     Good Combinations:
+       - 1 array, with number and series together
+       - 2 arrays, with numbers separatle
+       - 3 or more arrays with ...
+
+       Concat values, when they have nearest coordinates
+       """
+    values = []
+    probs = []
+    for bboxs, val, prob in predict:
+        probs.append(prob)
+        try:
+            num = int(val)   # NUM
+            values.append(num)
+        except:
+            try:
+                num = None
+                out = val.split(" ")  # Series or "series1 series2 num"
+                print(out)
+                if len(out) == 2:
+                    series = np.array(out[1], dtype=int)    # SERIES
+                elif len(out) == 3:
+                    num, series = np.array(out[1:], dtype=int)
+                    print(num, series)
+                else:
+                    print("UNKNOWN")
+            except:
+                print("ERROR")
+
+    return values, probs
+
 
 # def kmeans_postprocess(model, )
 

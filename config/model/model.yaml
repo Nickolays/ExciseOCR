@@ -1,0 +1,2 @@
+_target_: easyocr.Reader
+lang_list: ['en']
