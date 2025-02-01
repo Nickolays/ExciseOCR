@@ -25,7 +25,7 @@ var/
 .installed.cfg
 *.egg
 
-# /data
+/data
 /outputs
 /models
 *.mp4
